@@ -1,0 +1,1108 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP0/5PlmJFqqlpHli6sNxic",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Aiman-17/45-assingnment-question/blob/main/Assignment%206\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**1.Using Self**\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "emN2o15-3tt9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mTJKrYXHyuIo",
+        "outputId": "276d5aa4-c4d1-47a6-a37d-b4b443b951bf"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Student Name:Fatima\n",
+            "Student Marks:806\n",
+            "Student Name:Ayesha\n",
+            "Student Marks:905\n"
+          ]
+        }
+      ],
+      "source": [
+        "class Student:\n",
+        "  def __init__(self, name, marks):\n",
+        "    self.name = name\n",
+        "    self.marks = marks\n",
+        "\n",
+        "\n",
+        "  def display(self):\n",
+        "    print(f\"Student Name:{self.name}\")\n",
+        "    print(f\"Student Marks:{self.marks}\")\n",
+        "\n",
+        "\n",
+        "std1=Student(\"Fatima\", 806)\n",
+        "std1.display()\n",
+        "\n",
+        "std2=Student(\"Ayesha\", 905)\n",
+        "std2.display()\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**2. Using cls**"
+      ],
+      "metadata": {
+        "id": "fYh4p4RD4AEn"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Counter:\n",
+        "  count = 0\n",
+        "\n",
+        "\n",
+        "  def __init__(self):\n",
+        "    Counter.count += 1\n",
+        "\n",
+        "\n",
+        "  @classmethod\n",
+        "  def display_count(cls):\n",
+        "      print(f\"Total Object Created: {cls.count}\")\n",
+        "\n",
+        "\n",
+        "obj1=Counter()\n",
+        "obj2=Counter()\n",
+        "obj3=Counter()\n",
+        "\n",
+        "Counter.display_count()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L0jyGKnb5XNI",
+        "outputId": "bf99693f-1e82-444a-95b1-bd0672b68ca0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total Object Created: 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**3. Public Variables and Methods**"
+      ],
+      "metadata": {
+        "id": "HTDECsQq7_5I"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Car:\n",
+        "  def __init__ (self, brand):\n",
+        "    self.brand = brand\n",
+        "\n",
+        "\n",
+        "  def start(self):\n",
+        "      print(f\"{self.brand} is starting...\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "my_car = Car (\"Mercedes\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "print(f\"Brand : {my_car.brand}\")\n",
+        "my_car.start()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Cki3xWqq8Ka_",
+        "outputId": "1bb813f3-84ad-4a06-b208-c68469539b3f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Brand : Mercedes\n",
+            "Mercedes is starting...\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**4. Class Variables and Class Methods**"
+      ],
+      "metadata": {
+        "id": "EYpDOb7F-hOT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Bank:\n",
+        "  bank_name = \"Old Trust Bank\"\n",
+        "\n",
+        "\n",
+        "  def __init__(self, account_holder):\n",
+        "    self.account_holder = account_holder\n",
+        "\n",
+        "  @classmethod\n",
+        "  def change_bank_name(cls, new_name):\n",
+        "    cls.bank_name = new_name\n",
+        "\n",
+        "\n",
+        "  def display_info(self):\n",
+        "    print(f\"Account Holder: {self.account_holder}\")\n",
+        "    print(f\"Bank Name: {Bank.bank_name}\")\n",
+        "\n",
+        "\n",
+        "#create instances of bank\n",
+        "acc1 = Bank(\"Fatima\")\n",
+        "acc2 = Bank(\"Ayesha\")\n",
+        "\n",
+        "\n",
+        "#before change\n",
+        "acc1.display_info()\n",
+        "acc2.display_info()\n",
+        "\n",
+        "#change bank name\n",
+        "Bank.change_bank_name(\"Future Trust Bank\")\n",
+        "\n",
+        "#after change\n",
+        "print(\"\\nAfter change\")\n",
+        "acc1.display_info()\n",
+        "acc2.display_info()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "t0raq1sb-gOR",
+        "outputId": "44dceec1-c9a8-47b2-d636-5435ec4a1986"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Account Holder: Fatima\n",
+            "Bank Name: Old Trust Bank\n",
+            "Account Holder: Ayesha\n",
+            "Bank Name: Old Trust Bank\n",
+            "\n",
+            "After change\n",
+            "Account Holder: Fatima\n",
+            "Bank Name: Future Trust Bank\n",
+            "Account Holder: Ayesha\n",
+            "Bank Name: Future Trust Bank\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**5. Static Variables and Static Methods**"
+      ],
+      "metadata": {
+        "id": "NHYcP_CYlOo-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Methods:\n",
+        "  @staticmethod\n",
+        "  def add (a, b):\n",
+        "    return a + b\n",
+        "\n",
+        "\n",
+        "result1 = Methods.add (22, 77)\n",
+        "result2 = Methods.add (33, 76)\n",
+        "\n",
+        "print(f\"Result1 : {result1}\")\n",
+        "print(f\"Result2: {result2}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xDrJ8pb6lZVE",
+        "outputId": "80e98122-8926-48d5-e3b6-59b2b677ddf7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Result1 : 99\n",
+            "Result2: 109\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**6. Constructors and Destructors**"
+      ],
+      "metadata": {
+        "id": "FqjGu5qZmNyR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Logger:\n",
+        "  def __init__(self):\n",
+        "    print(\"Logger: Object created — constructor executed.\")\n",
+        "\n",
+        "  def __del__(self):\n",
+        "    print(\"Logger: Object destroyed — destructor executed.\")\n",
+        "\n",
+        "\n",
+        "log1 = Logger()\n",
+        "del log1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "S1bFTkz7mWdG",
+        "outputId": "5ce7fabe-ef21-4d7f-bb26-61d145338912"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Logger: Object created — constructor executed.\n",
+            "Logger: Object destroyed — destructor executed.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**7. Access Modifiers: Public, Private, and Protected**"
+      ],
+      "metadata": {
+        "id": "2srgknoIpOGG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Employee:\n",
+        "  def __init__(self, name, salary, ssn):\n",
+        "    self.name = name #public\n",
+        "    self._salary = salary #protected\n",
+        "    self.__ssn = ssn #private\n",
+        "\n",
+        "\n",
+        "  def display_info(self):\n",
+        "    print(f\"Name {self.name}\")\n",
+        "    print(f\"Salary {self._salary}\")\n",
+        "    print(f\"SSN {self.__ssn}\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "emp = Employee(\"Fatima\", 50000, \"123456789\")\n",
+        "emp.display_info()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XeYP5oYPpTqn",
+        "outputId": "f0bd5d5d-e3ae-4d32-ec79-f2f3d31242e7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Name Fatima\n",
+            "Salary 50000\n",
+            "SSN 123456789\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**8. The super() Function**"
+      ],
+      "metadata": {
+        "id": "0XWvJwrMtSJ5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Person:\n",
+        "  def __init__(self, name):\n",
+        "    self.name = name\n",
+        "    print(f\"Teacher name is {self.name}\")\n",
+        "\n",
+        "class Teacher (Person):\n",
+        "  def __init__(self, name, subject):\n",
+        "    super().__init__(name)\n",
+        "    self.subject = subject\n",
+        "    print(f\"Subject set to {self.subject}\")\n",
+        "\n",
+        "  def display_info(self):\n",
+        "    print(f\"Name:{self.name}\")\n",
+        "    print(f\"Subject:{self.subject}\")\n",
+        "\n",
+        "t1 = Teacher(\"Fatima\", \"Mathematics\")\n",
+        "t1.display_info()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HQC9VInJtXS8",
+        "outputId": "200b457d-1f3a-4577-b628-2f56523ee5eb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Teacher name is Fatima\n",
+            "Subject set to Mathematics\n",
+            "Name:Fatima\n",
+            "Subject:Mathematics\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**9. Abstract Classes and Methods**"
+      ],
+      "metadata": {
+        "id": "9yOA10X-v8KL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from abc import ABC, abstractmethod\n",
+        "class Shape(ABC):\n",
+        "  @abstractmethod\n",
+        "  def area(self):\n",
+        "    pass\n",
+        "\n",
+        "class Rectangle(Shape):\n",
+        "  def __init__(self, height, width):\n",
+        "    self.height = height\n",
+        "    self.width = width\n",
+        "\n",
+        "\n",
+        "  def area(self):\n",
+        "   return self.height*self.width\n",
+        "\n",
+        "value = Rectangle(23, 64)\n",
+        "print(f\"Result: {value.area()}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wI_wGBBty1kL",
+        "outputId": "6f71bf96-0d07-4770-a0a5-b07f153f012c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Result: 1472\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "10. **Instance Methods**"
+      ],
+      "metadata": {
+        "id": "CmGtj57N2Bqi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Dog:\n",
+        "  def __init__(self, name, breed):\n",
+        "    self.name = name\n",
+        "    self.breed = breed\n",
+        "\n",
+        "  def bark(self):\n",
+        "    print(f\"{self.name} Woof! Woof!\")\n",
+        "\n",
+        "\n",
+        "dog1 = Dog(\"Buddy\", \"Golden Retriever\")\n",
+        "dog2 = Dog(\"Max\", \"Labrador\")\n",
+        "\n",
+        "dog1.bark()\n",
+        "dog2.bark()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nkP3Esr_2v-r",
+        "outputId": "1df030e9-55d1-48ff-895a-262e26389805"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Buddy Woof! Woof!\n",
+            "Max Woof! Woof!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**11. Class Method**"
+      ],
+      "metadata": {
+        "id": "yF3NcKrv4G7W"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Book:\n",
+        "  total_books: int = 0\n",
+        "\n",
+        "  def __init__(self, title, author):\n",
+        "    self.title = title\n",
+        "    self.author = author\n",
+        "    Book.total_books += 1\n",
+        "\n",
+        "  @classmethod\n",
+        "  def get_total_books(cls):\n",
+        "    return cls.total_books\n",
+        "\n",
+        "\n",
+        "  def display_info(self):\n",
+        "    print(f\"Title: {self.title}\")\n",
+        "    print(f\"Author: {self.author}\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "book1 = Book(\"The Great Gatsby\", \"F. Scott Fitzgerald\")\n",
+        "book2 = Book(\"To Kill a Mockingbird\", \"Harper Lee\")\n",
+        "\n",
+        "book1.display_info()\n",
+        "book2.display_info()\n",
+        "print(f\"Total Books: {Book.get_total_books()}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tQStxfUK4Qn9",
+        "outputId": "a450b856-a335-4ca4-e915-6ae7fcb7414f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Title: The Great Gatsby\n",
+            "Author: F. Scott Fitzgerald\n",
+            "Title: To Kill a Mockingbird\n",
+            "Author: Harper Lee\n",
+            "Total Books: 2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**12. Static Methods**"
+      ],
+      "metadata": {
+        "id": "XM91y3n_6i5M"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class TemCon:\n",
+        "  @staticmethod\n",
+        "  def celsius_to_fahrenheit(c):\n",
+        "    fahrenheit = (c * 9/5) + 32\n",
+        "    return fahrenheit\n",
+        "\n",
+        "  temp_c = 37\n",
+        "  temp_f = celsius_to_fahrenheit(temp_c)\n",
+        "  print(f\"{temp_c}°C is equal to {temp_f}°F\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UWuwwB9x8BZj",
+        "outputId": "f8f862b9-43ca-4bd8-ae75-e710afadb14f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "37°C is equal to 98.6°F\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**13. Composition**"
+      ],
+      "metadata": {
+        "id": "FaDqtqZZ9sUr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Engine:\n",
+        "  def start(self):\n",
+        "    return \"Engine has started\"\n",
+        "\n",
+        "class Car:\n",
+        "  def __init__(self, engine):\n",
+        "   self.engine  = engine\n",
+        "\n",
+        "\n",
+        "  def start_engine(self):\n",
+        "    return self.engine.start()\n",
+        "\n",
+        "car1 = Engine()\n",
+        "car2 = Car(car1)\n",
+        "print(car2.start_engine())\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lYbBEzDc9y4g",
+        "outputId": "0b4d6d53-e05f-4a47-a90e-f62fe807d10e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Engine has started\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**14. Aggregation**"
+      ],
+      "metadata": {
+        "id": "dQFnMLdm_ni7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Employee:\n",
+        "  def __init__(self, name, id):\n",
+        "    self.name = name\n",
+        "    self.id = id\n",
+        "\n",
+        "  def show(self):\n",
+        "    print(f\"Employee Name: {self.name}\")\n",
+        "    print(f\"Employee ID: {self.id}\")\n",
+        "\n",
+        "class Department:\n",
+        "  def __init__(self, name):\n",
+        "    self.name = name\n",
+        "    self.employees = []\n",
+        "\n",
+        "  def add_employee(self, emp):\n",
+        "    self.employees.append(emp)\n",
+        "\n",
+        "  def show_employees(self):\n",
+        "    print(f\"Department Name: {self.name}\")\n",
+        "    for emp in self.employees:\n",
+        "        emp.show()\n",
+        "\n",
+        "\n",
+        "\n",
+        "emp1 = Employee(\"Fatima\", 102)\n",
+        "emp2 = Employee(\"Ayesha\", 103)\n",
+        "\n",
+        "dept = Department(\"IT\")\n",
+        "dept.add_employee(emp1)\n",
+        "dept.add_employee(emp2)\n",
+        "\n",
+        "dept.show_employees()\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "niyCNuzVGMP8",
+        "outputId": "7e40ab2b-6ba4-4a0f-c03e-6b94c2cb8659"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Department Name: IT\n",
+            "Employee Name: Fatima\n",
+            "Employee ID: 102\n",
+            "Employee Name: Ayesha\n",
+            "Employee ID: 103\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**15. Method Resolution Order (MRO) and Diamond Inheritance**"
+      ],
+      "metadata": {
+        "id": "vyGs6XvvNZ1r"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class A:\n",
+        "  def show(self):\n",
+        "    print(\"Method of class A\")\n",
+        "\n",
+        "class B(A):\n",
+        "  def show(self):\n",
+        "    print(\"Method of class B\")\n",
+        "\n",
+        "class C(A):\n",
+        "  def show(self):\n",
+        "    print(\"Method of class C\")\n",
+        "\n",
+        "class D(B, C):\n",
+        "  pass\n",
+        "\n",
+        "d = D()\n",
+        "d.show()\n",
+        "print(D.__mro__)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AdaKiX_FNh1x",
+        "outputId": "1dd38d29-b680-4760-df49-6222d7fffafa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Method of class B\n",
+            "(<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**16. Function Decorators**"
+      ],
+      "metadata": {
+        "id": "YCUZBXcONih1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def log_func_call(func):\n",
+        "  def wrapper(*args, **kwargs):\n",
+        "    print(\"Function is being called\")\n",
+        "    return func(*args, **kwargs)\n",
+        "  return wrapper\n",
+        "\n",
+        "@log_func_call\n",
+        "def say_hello(name):\n",
+        "  print(f\"Hello Wold {name}!\")\n",
+        "\n",
+        "\n",
+        "say_hello(\"Alice\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cMRlFARwNqOc",
+        "outputId": "52b10e3d-ad0c-4bc4-f10d-3369a816edd9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Function is being called\n",
+            "Hello Wold Alice!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**17. Class Decorators**"
+      ],
+      "metadata": {
+        "id": "Y3Rt6lcNNq82"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def add_greeting(cls):\n",
+        "  def greet(self):\n",
+        "    return \"Hello from Decorator\"\n",
+        "  cls.greet = greet\n",
+        "  return cls\n",
+        "\n",
+        "@add_greeting\n",
+        "class Person:\n",
+        "  def __init__(self, name):\n",
+        "    self.name = name\n",
+        "\n",
+        "person = Person(\"Ali\")\n",
+        "print(person.greet())\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2sZt8XHcNxUg",
+        "outputId": "853988c9-680a-4018-fdba-c3d0e654c05d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello from Decorator\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**18. Property Decorators: @property, @setter, and @deleter**"
+      ],
+      "metadata": {
+        "id": "yu5oKLkuNx6k"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Product:\n",
+        "  def __init__(self, price):\n",
+        "    self._price = price\n",
+        "\n",
+        "  @property\n",
+        "  def get_price(self):\n",
+        "    print(\"Getting price...\")\n",
+        "    return self._price\n",
+        "\n",
+        "  @get_price.setter\n",
+        "  def price_setter(self, value):\n",
+        "    print(\"Setting price...\")\n",
+        "    if value < 0:\n",
+        "      raise ValueError(\"Price cannot be negative\")\n",
+        "    self._price = value\n",
+        "\n",
+        "  @get_price.deleter\n",
+        "  def price_deleter(self):\n",
+        "    print(\"Price is deleted\")\n",
+        "    del self._price\n",
+        "\n",
+        "\n",
+        "p = Product(9)\n",
+        "print(p.get_price)\n",
+        "\n",
+        "p.price_setter = 200\n",
+        "print(p.price_setter)\n",
+        "\n",
+        "del p.price_deleter\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5Zc2ueG9N5sf",
+        "outputId": "b4bdd492-15be-4dfe-cd55-b6a60595de60"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Getting price...\n",
+            "9\n",
+            "Setting price...\n",
+            "Getting price...\n",
+            "200\n",
+            "Price is deleted\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**19. callable() and __call__()**"
+      ],
+      "metadata": {
+        "id": "B80t49AKN6W_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Multiplier:\n",
+        "  def __init__(self, factor):\n",
+        "    self.factor = factor\n",
+        "\n",
+        "  def __call__(self, number):\n",
+        "    return number * self.factor\n",
+        "\n",
+        "sum = Multiplier(4)\n",
+        "print(callable(sum))\n",
+        "\n",
+        "print(sum(5))\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SuE_XzEKOF8T",
+        "outputId": "6f8c4551-3389-4429-ed4f-222b07eee594"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n",
+            "20\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**20. Creating a Custom Exception**"
+      ],
+      "metadata": {
+        "id": "VR_fgokgOGk7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class InvalidAgeError(Exception):\n",
+        "  def __init__(self, message = \"Age must be 18 or older\"):\n",
+        "    super().__init__(message)\n",
+        "\n",
+        "def check_age( age):\n",
+        "    if age < 18:\n",
+        "      raise InvalidAgeError (f\"Invalid Age: {age} You must be at least 18\")\n",
+        "    else:\n",
+        "     print(f\"Valid Age: {age}\")\n",
+        "\n",
+        "try:\n",
+        "    user_age = int(input(\"Enter yor age :\"))\n",
+        "    check_age(user_age)\n",
+        "except InvalidAgeError as e:\n",
+        "    print(e)\n",
+        "except ValueError:\n",
+        "    print(\"Invalid age, Please enter correct age\")\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UU2kywNHONpz",
+        "outputId": "3db0a6e0-931d-4c59-dbdb-4e4484f72532"
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter yor age :12\n",
+            "Invalid Age: 12 You must be at least 18\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**21. Make a Custom Class**"
+      ],
+      "metadata": {
+        "id": "9bVI65zPOOXk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Countdown:\n",
+        "  def __init__(self, start):\n",
+        "    self.start = start\n",
+        "\n",
+        "  def __iter__(self):\n",
+        "      return self\n",
+        "\n",
+        "  def __next__(self):\n",
+        "       if self.start < 0:\n",
+        "        raise StopIteration\n",
+        "       else:\n",
+        "          value = self.start\n",
+        "          self.start -= 1\n",
+        "          return value\n",
+        "\n",
+        "\n",
+        "cd = Countdown(10)\n",
+        "for i in cd:\n",
+        "  print(i)\n"
+      ],
+      "metadata": {
+        "id": "T2XW_DJsOjDJ",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f03b40d8-fc00-4391-9d1c-bab1bdd08b95"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10\n",
+            "9\n",
+            "8\n",
+            "7\n",
+            "6\n",
+            "5\n",
+            "4\n",
+            "3\n",
+            "2\n",
+            "1\n",
+            "0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
